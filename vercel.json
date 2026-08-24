@@ -2,11 +2,24 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/",
+      "destination": "https://zentrix-360-store.urielmicen.chatgpt.site/"
+    },
+    {
       "source": "/:path*",
       "destination": "https://zentrix-360-store.urielmicen.chatgpt.site/:path*"
     }
   ],
   "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "x-vercel-enable-rewrite-caching",
+          "value": "0"
+        }
+      ]
+    },
     {
       "source": "/:path*",
       "headers": [
