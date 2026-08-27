@@ -1,33 +1,24 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "https://zentrix-360-store.urielmicen.chatgpt.site/"
-    },
-    {
-      "source": "/:path*",
-      "destination": "https://zentrix-360-store.urielmicen.chatgpt.site/:path*"
-    }
-  ],
   "headers": [
     {
-      "source": "/",
+      "source": "/assets/(.*)",
       "headers": [
         {
-          "key": "x-vercel-enable-rewrite-caching",
-          "value": "0"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
     },
     {
-      "source": "/:path*",
-      "headers": [
-        {
-          "key": "x-vercel-enable-rewrite-caching",
-          "value": "0"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
